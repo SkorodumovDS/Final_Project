@@ -11,11 +11,11 @@ struct mainView: View {
     var body: some View {
         TabView() {
             FeedView()
-            .tabItem {
-                Label("Главная", image: "houseSelected")
-            }
+                .tabItem {
+                    Label("Главная", image: "houseSelected")
+                }
             ProfileView()
-                //.environmentObject(Situation(quizState: .question))
+            //.environmentObject(Situation(quizState: .question))
                 .tabItem {
                     Label("Профиль" , image: "userUnselected")
                 }

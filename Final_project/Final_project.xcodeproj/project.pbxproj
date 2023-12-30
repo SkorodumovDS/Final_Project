@@ -31,6 +31,11 @@
 		C9FD37B12B389B3B00B3ED05 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37B02B389B3B00B3ED05 /* Profile.swift */; };
 		C9FD37B32B389BF200B3ED05 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37B22B389BF200B3ED05 /* ProfileViewModel.swift */; };
 		C9FD37B52B38A80A00B3ED05 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37B42B38A80A00B3ED05 /* Photos.swift */; };
+		C9FD37B72B40259C00B3ED05 /* ProfileMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37B62B40259C00B3ED05 /* ProfileMenu.swift */; };
+		C9FD37B92B402BA900B3ED05 /* PostMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37B82B402BA800B3ED05 /* PostMenu.swift */; };
+		C9FD37BB2B402D3700B3ED05 /* TuneProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37BA2B402D3700B3ED05 /* TuneProfile.swift */; };
+		C9FD37BD2B40302300B3ED05 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37BC2B40302300B3ED05 /* PhotoView.swift */; };
+		C9FD37BF2B4034B200B3ED05 /* TuneProfileMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD37BE2B4034B200B3ED05 /* TuneProfileMain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +64,11 @@
 		C9FD37B02B389B3B00B3ED05 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C9FD37B22B389BF200B3ED05 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C9FD37B42B38A80A00B3ED05 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		C9FD37B62B40259C00B3ED05 /* ProfileMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenu.swift; sourceTree = "<group>"; };
+		C9FD37B82B402BA800B3ED05 /* PostMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMenu.swift; sourceTree = "<group>"; };
+		C9FD37BA2B402D3700B3ED05 /* TuneProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuneProfile.swift; sourceTree = "<group>"; };
+		C9FD37BC2B40302300B3ED05 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		C9FD37BE2B4034B200B3ED05 /* TuneProfileMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuneProfileMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,11 @@
 				C9FD37AA2B3893C100B3ED05 /* SavedPostsView.swift */,
 				C9FD37AC2B3893F300B3ED05 /* mainView.swift */,
 				C9FD37AE2B389AFD00B3ED05 /* FollowerView.swift */,
+				C9FD37B62B40259C00B3ED05 /* ProfileMenu.swift */,
+				C9FD37B82B402BA800B3ED05 /* PostMenu.swift */,
+				C9FD37BA2B402D3700B3ED05 /* TuneProfile.swift */,
+				C9FD37BC2B40302300B3ED05 /* PhotoView.swift */,
+				C9FD37BE2B4034B200B3ED05 /* TuneProfileMain.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,13 +237,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9FD37952B36F2A100B3ED05 /* FeedCell.swift in Sources */,
+				C9FD37BD2B40302300B3ED05 /* PhotoView.swift in Sources */,
 				C9FD37B12B389B3B00B3ED05 /* Profile.swift in Sources */,
 				C9FD379A2B37014200B3ED05 /* PostDetail.swift in Sources */,
 				C9FD379E2B37562000B3ED05 /* Dates.swift in Sources */,
+				C9FD37B92B402BA900B3ED05 /* PostMenu.swift in Sources */,
 				C9FD37A42B38892A00B3ED05 /* RegistrationView.swift in Sources */,
 				C9FD37A22B387DBB00B3ED05 /* WelcomeBackView.swift in Sources */,
+				C9FD37B72B40259C00B3ED05 /* ProfileMenu.swift in Sources */,
 				C9FD37B32B389BF200B3ED05 /* ProfileViewModel.swift in Sources */,
 				C9FD37AF2B389AFD00B3ED05 /* FollowerView.swift in Sources */,
+				C9FD37BB2B402D3700B3ED05 /* TuneProfile.swift in Sources */,
 				C9FD378E2B36F09900B3ED05 /* FeedView.swift in Sources */,
 				C9FD379C2B37510F00B3ED05 /* Stories.swift in Sources */,
 				C9FD37AB2B3893C100B3ED05 /* SavedPostsView.swift in Sources */,
@@ -236,6 +255,7 @@
 				C9FD37AD2B3893F300B3ED05 /* mainView.swift in Sources */,
 				C9FD37A92B3893B400B3ED05 /* ProfileView.swift in Sources */,
 				C9FD377D2B36E43700B3ED05 /* ContentView.swift in Sources */,
+				C9FD37BF2B4034B200B3ED05 /* TuneProfileMain.swift in Sources */,
 				C9FD37A02B38781100B3ED05 /* WelcomeView.swift in Sources */,
 				C9FD37B52B38A80A00B3ED05 /* Photos.swift in Sources */,
 				C9FD37932B36F19900B3ED05 /* Post.swift in Sources */,

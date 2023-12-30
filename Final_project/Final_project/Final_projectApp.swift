@@ -15,7 +15,8 @@ struct Final_projectApp: App {
         WindowGroup {
             //ContentView()
               //  .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            FeedView()
+            mainView()
+            //FeedView()
         }
     }
 }

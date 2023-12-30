@@ -12,6 +12,7 @@ struct FeedView: View {
     @ObservedObject var viewModel  = FeedViewModel()
     
     var body: some View {
+        NavigationStack{
         VStack{
             HStack{
                 ScrollView(.horizontal){
@@ -27,29 +28,32 @@ struct FeedView: View {
                 }.padding([.leading , .trailing,.bottom])
             }
             // NavigationView{
-            List {
-                ForEach(viewModel.dates) { date in
+            
+                ScrollView{
                     
-                    HStack{
-                        Text(date.date)
-                    }
-                    let listsPosts = viewModel.posts.filter{ $0.dateTime == date.date}
-                    ForEach(listsPosts) {post in
+                    /*LazyVStack{
+                     ForEach(viewModel.dates) { date in
+                     
+                     HStack{
+                     Text(date.date)
+                     }
+                     */
+                    
+                    LazyVStack(spacing:32){
                         
-                        /* NavigationLink(destination: {
-                         PostDetail(post: post)
-                         .navigationTitle("Публикации")
-                         .listStyle(.plain)
-                         }, label: {
+                        
+                        /*let listsPosts = viewModel.posts.filter{ $0.dateTime == date.date}
                          */
-                        FeedCell(post: post)
-                            .frame(height: 400)
-                        //})
+                        ForEach(viewModel.posts) {post in
+                            NavigationLink(value: post){
+                                FeedCell(post: post)
+                                    .frame(height: 400)
+                            }
+                            .navigationDestination(for: Post.self, destination: {post in PostDetail(post: post)})
+                        }
                     }
-                    .listStyle(.plain)
-                    .scaledToFit()
+                    //  }
                 }
-                //  }
             }
         }
     }
