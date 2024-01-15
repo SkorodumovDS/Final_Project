@@ -10,7 +10,7 @@ import SwiftUI
 struct FeedView: View {
     
     @ObservedObject var viewModel  = FeedViewModel()
-    
+    @State var profileModel: ProfileModel
     var body: some View {
         NavigationStack{
         VStack{
@@ -55,10 +55,12 @@ struct FeedView: View {
                     //  }
                 }
             }
+        }.toolbar{
+           
         }
     }
 }
 
-#Preview {
-    FeedView()
-}
+//#Preview {
+  //  FeedView()
+//}

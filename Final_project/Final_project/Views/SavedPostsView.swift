@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct SavedPostsView: View {
+    @State var profileModel: ProfileModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+        VStack{
+            
+                ScrollView{
+                    LazyVStack(spacing:32){
+                        ForEach(self.profileModel.likedPosts) {post in
+                            NavigationLink(value: post){
+                                FeedCell(post: post)
+                                    .frame(height: 400)
+                            }
+                            .navigationDestination(for: Post.self, destination: {post in PostDetail(post: post)})
+                        }
+                    }
+                }
+            }
+        }.toolbar{
+           
+        }
     }
 }
 
-#Preview {
-    SavedPostsView()
-}
+//#Preview {
+//SavedPostsView()
+//}

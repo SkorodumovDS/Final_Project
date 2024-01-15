@@ -9,9 +9,10 @@ import SwiftUI
 
 struct RegistrationView: View {
     @State private var phoneNumber : String = ""
-    
+    @State private var tagSelection : String? = nil
     var body: some View {
         VStack{
+            NavigationLink(destination: ConfirmRegistrationView(phoneNumber: phoneNumber), tag: "accept", selection: $tagSelection) { EmptyView() }
             Spacer()
             Text("ЗАРЕГИСТРИРОВАТЬСЯ")
                 .font(.system(size: 20, weight: .semibold))
@@ -29,6 +30,7 @@ struct RegistrationView: View {
             .contrast(0.5)
             TextField("+38___-___-__", text: $phoneNumber)
                // .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.numberPad)
                 .multilineTextAlignment(.center)
                 .padding([.leading , .trailing] , 57)
                // .cornerRadius(10)
@@ -40,7 +42,9 @@ struct RegistrationView: View {
                 }
             Spacer()
             
-            Button(action: {}, label: {
+            Button(action: {
+                tagSelection = "accept"
+            }, label: {
                 Text("ДАЛЕЕ")
                     .foregroundColor(Color.white)
                     .frame(height: 19)

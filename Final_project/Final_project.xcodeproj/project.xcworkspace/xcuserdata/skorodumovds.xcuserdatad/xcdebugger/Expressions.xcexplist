@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #4 in closure #1 in closure #1 in WelcomeBackView.body.getter:WelcomeBackView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.profileModel">
+            </PersistentString>
+            <PersistentString
+               value = "profileModel.ownerImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

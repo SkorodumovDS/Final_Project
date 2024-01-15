@@ -20,13 +20,30 @@ class FeedViewModel : ObservableObject {
     }
     
     func fetchPosts() {
-        let post1 = Post(username: "David", ownerImage: "exampleOwner", ownerJobTitle: "archtector", image: "exampleImage", likes: 10, comments: 15, isBookmarked: true, caption: "Бэтмен поднимает ставки в войне с криминалом. С помощью лейтенанта Джима Гордона и прокурора Харви Дента он намерен очистить улицы от преступности, отравляющей город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным испуганным горожанам под именем Джокер." , dateTime: "13 Июля")
         
-        let post2 = Post(username: "David", ownerImage: "exampleOwner", ownerJobTitle: "archtector", image: "exampleImage", likes: 10, comments: 15, isBookmarked: true, caption: "Бэтмен поднимает ставки в войне с криминалом. С помощью лейтенанта Джима Гордона и прокурора Харви Дента он намерен очистить улицы от преступности, отравляющей город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным испуганным горожанам под именем Джокер." , dateTime: "13 Июля")
-        
-        let post3 = Post(username: "David", ownerImage: "exampleOwner", ownerJobTitle: "archtector", image: "exampleImage", likes: 10, comments: 15, isBookmarked: true, caption: "Бэтмен поднимает ставки в войне с криминалом. С помощью лейтенанта Джима Гордона и прокурора Харви Дента он намерен очистить улицы от преступности, отравляющей город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным испуганным горожанам под именем Джокер." , dateTime: "15 Июля")
-        
-        posts = [post1 , post2, post3]
+        let postsModelArray = PostsCoreDataModel.makePosts()
+        if postsModelArray.isEmpty {
+            let post1 = Post(username: "David", ownerImage: "exampleOwner", ownerJobTitle: "archtector", image: "exampleImage", likes: 10, comments: 15, isBookmarked: true, caption: "Бэтмен поднимает ставки в войне с криминалом. С помощью лейтенанта Джима Гордона и прокурора Харви Дента он намерен очистить улицы от преступности, отравляющей город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным испуганным горожанам под именем Джокер." , dateTime: "13 Июля")
+            
+            let post2 = Post(username: "David", ownerImage: "exampleOwner", ownerJobTitle: "archtector", image: "exampleImage", likes: 10, comments: 15, isBookmarked: true, caption: "Бэтмен поднимает ставки в войне с криминалом. С помощью лейтенанта Джима Гордона и прокурора Харви Дента он намерен очистить улицы от преступности, отравляющей город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным испуганным горожанам под именем Джокер." , dateTime: "13 Июля")
+            
+            let post3 = Post(username: "David", ownerImage: "exampleOwner", ownerJobTitle: "archtector", image: "exampleImage", likes: 10, comments: 15, isBookmarked: true, caption: "Бэтмен поднимает ставки в войне с криминалом. С помощью лейтенанта Джима Гордона и прокурора Харви Дента он намерен очистить улицы от преступности, отравляющей город. Сотрудничество оказывается эффективным, но скоро они обнаружат себя посреди хаоса, развязанного восходящим криминальным гением, известным испуганным горожанам под именем Джокер." , dateTime: "15 Июля")
+            
+            posts = [post1 , post2, post3]
+                
+            let postsModelCoreDataArray =  posts.map{
+                _element in
+                PostsCoreDataModel(post: _element)
+            }
+            PostsCoreDataModel.savePosts(posts: postsModelCoreDataArray)
+        }
+        else {
+            let postsModel =  postsModelArray.map{
+                _element in
+                Post(postDataModel: _element)
+            }
+            posts = postsModel
+        }
     }
     
     func fetchStories() {

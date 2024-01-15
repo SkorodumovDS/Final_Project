@@ -8,24 +8,28 @@
 import SwiftUI
 
 struct mainView: View {
+    @State var profileModel: ProfileModel
     var body: some View {
-        TabView() {
-            FeedView()
-                .tabItem {
-                    Label("Главная", image: "houseSelected")
-                }
-            ProfileView()
-            //.environmentObject(Situation(quizState: .question))
-                .tabItem {
-                    Label("Профиль" , image: "userUnselected")
-                }
-            SavedPostsView()
-                .tabItem {
-                    Label("Сохраненные", image: "like")
-                }
-        }    }
+        NavigationView{
+            TabView() {
+                FeedView(profileModel: profileModel)
+                    .tabItem {
+                        Label("Главная", image: "houseSelected")
+                    }
+                ProfileView(profileModel: profileModel)
+                //.environmentObject(Situation(quizState: .question))
+                    .tabItem {
+                        Label("Профиль" , image: "userUnselected")
+                    }
+                SavedPostsView(profileModel: profileModel)
+                    .tabItem {
+                        Label("Сохраненные", image: "like")
+                    }
+            }.background(Color.gray)
+        }.navigationBarHidden(true)
+    }
 }
 
-#Preview {
-    mainView()
-}
+//#Preview {
+ //   mainView()
+//}

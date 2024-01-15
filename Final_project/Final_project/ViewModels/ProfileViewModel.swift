@@ -9,17 +9,33 @@ import Foundation
 
 class ProfileViewModel : ObservableObject {
     
-    @Published var profile : Profile
+    @Published var profile : ProfileModel
     @Published var dates: [Dates] = []
     @Published var posts = [Post]()
     
-    init() {
-       
-        let profile1 = Profile(username: "victor.dis", name: "Виктор Терещенко", ownerImage: "exampleOwner", ownerJobTitle: "Дизанер", publishing: 1400, followers: 161, follow: 477, photos: [Photos(title: "exampleStories1"),Photos(title:"exampleStories2"),Photos(title:"exampleStories3"),Photos(title:"exampleStories4"),Photos(title:"exampleStories5")])
-        
-        profile = profile1
+    init(profile: ProfileModel) {
+        self.profile = profile
+        fetchProfile()
         fetchPosts()
         fetchDates()
+    }
+    
+    init() {
+        self.profile = ProfileModel()
+        fetchProfile()
+        fetchPosts()
+        fetchDates()
+    }
+    
+    func fetchProfile() {
+        if self.profile.ownerImage == "" {
+            let profile1 = ProfileModel(username: profile.username, name: "Виктор Терещенко", ownerImage: "exampleOwner", ownerJobTitle: "Дизанер", publishing: 1400, followers: 161, follow: 477, photos: [PhotosModel(title: "exampleStories1"),PhotosModel(title:"exampleStories2"),PhotosModel(title:"exampleStories3"),PhotosModel(title:"exampleStories4"),PhotosModel(title:"exampleStories5")] , likedPosts: [])
+            
+            profile = profile1
+            
+            let coreDataProfile = ProfileCoreDataModel(profileModel: profile)
+            ProfileCoreDataModel.save(profile: coreDataProfile)
+        }
     }
     
     func   fetchDates() {

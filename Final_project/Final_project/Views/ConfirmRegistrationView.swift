@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct ConfirmRegistrationView: View {
+    @State private var tagSelection : String? = nil
     @State var phoneNumber : String = ""
     @State private var codeNumber : String = ""
+    @State var profileModel : ProfileModel = ProfileModel(username: "", name: "", ownerImage: "", ownerJobTitle: "", publishing: 0, followers: 0, follow: 0, photos: [], likedPosts: [])
+    @ObservedObject var viewModel  = RegistationViewModel()
+    
     var body: some View {
         VStack{
+            
+            NavigationLink(destination: mainView(profileModel: self.profileModel), tag: "accept", selection: $tagSelection) { EmptyView() }
+            /*
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Image("backArrow")
                     .frame(width: 20 , height: 20)
                     .padding([.leading], 2)
             })
+            */
             Spacer()
             Text("Подтверждение регистрации")
                 .padding([.bottom] , 20)
@@ -41,7 +49,11 @@ struct ConfirmRegistrationView: View {
                         .frame(height: 48)
                 }
             Spacer()
-            Button(action: {}, label: {
+            Button(action: {
+                self.profileModel = viewModel.registation(phone: phoneNumber)
+                tagSelection = "accept"
+              
+            }, label: {
                 Text("ЗАРЕГЕСТРИРОВАТЬСЯ")
                     .foregroundColor(Color.white)
                     .frame(height: 19)

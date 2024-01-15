@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @State var profileModel: ProfileModel
     @ObservedObject var viewModel  = ProfileViewModel()
     var body: some View {
         let profile = viewModel.profile
@@ -169,9 +170,10 @@ struct ProfileView: View {
                     }
                 }
             }
+            .toolbar(.visible, for: .automatic)
     }
 }
 
-#Preview {
-    ProfileView()
-}
+//#Preview {
+ //   ProfileView()
+//}
